@@ -20,7 +20,12 @@ bot_token = '6398719762:AAF7WSsW5xWsvrc-iCdxts7-z3IDYDs782E'
 async def start_commmand(update, context):
     await update.message.reply_text("Hey there! If you'd like to set up a new reminder, just type /new. I'm here to help!")
     
-
+async def dev_commmand(update, context):
+    await update.message.reply_text(" Bot developed by Asthalochan"
+                                    "Contact: mohantaastha@gmail.com"
+                                    "Copyright (c) 2023 Asthalochan"
+                                    "This software is released under the MIT License.")
+    
 async def new_reminder(update, context):
     await update.message.reply_text('Whose birthday should I help you remind?')
     return 1
@@ -125,6 +130,8 @@ application = Application.builder().token(bot_token).build()
     #start
     
 application.add_handler(CommandHandler('start', start_commmand))
+
+application.add_handler(CommandHandler('dev', dev_commmand))
 application.add_handler(conv_handler)
 
 threading.Thread(target = do_reminders).start()
